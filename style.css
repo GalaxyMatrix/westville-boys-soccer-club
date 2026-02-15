@@ -137,6 +137,7 @@ body {
 
 /* Community Grid */
 .community {
+    display: grid;
     padding: 80px 10%;
     text-align: center;
     background: linear-gradient(
@@ -248,6 +249,152 @@ textarea { height: 100%; min-height: 150px; }
     margin-bottom: 10px;
     color: #333;
 }
+/* Teams Page Styling */
+.teams-wrapper {
+    padding: 60px 10%;
+    background-color: #f4f4f4;
+}
+
+.category-title {
+    margin: 40px 0 20px;
+    padding-left: 15px;
+    border-left: 5px solid #0022ff; /* Westville Blue accent */
+    font-size: 1.6rem;
+    color: #1a1a1a;
+    text-transform: uppercase;
+}
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.team-card {
+    background: white;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-bottom: 4px solid #ee0000; /* Westville Red accent */
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+}
+
+.team-card p {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Specialty Card Styles */
+.senior-card {
+    background: #ffffff;
+    color: rgb(255, 255, 255);
+    border-bottom-color: #ff0000;
+}
+.senior-card h3 { color: rgb(0, 0, 0); }
+
+.gk-card {
+    background: #ffffff; /* Cyan accent */
+    border-bottom-color: #ff0000;
+}
+
+/* Mobile Fix for Teams */
+@media (max-width: 600px) {
+    .teams-grid {
+        grid-template-columns: 1fr 1fr; /* 2 cards per row on phones */
+        gap: 10px;
+    }
+    .category-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* Team Detail Page Styles */
+.detail-container {
+    padding: 60px 10%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.info-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border-top: 4px solid #0022ff;
+}
+
+.info-box h2 {
+    color: #ee0000;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.info-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-box li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.info-box li::before {
+    content: "⚽";
+    position: absolute;
+    left: 0;
+}
+
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #0022ff;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.detail-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #ee0000;
+}
+
+.tagline {
+    color: #666;
+    font-style: italic;
+}
+
+
+/* Mobile Fix for Detail Page */
+@media (max-width: 600px) {
+    .info-grid { grid-template-columns: 1fr; }
+}
+
+
 
 
 /* --- MOBILE RESPONSIVENESS FIXES --- */
@@ -300,7 +447,7 @@ textarea { height: 100%; min-height: 150px; }
         padding: 0 5%;
     }
 
-    /* 4. Fix the Map and Contact Form */
+    /* 4.the Map and Contact Form */
     .form-row {
         flex-direction: column; /* Stack name inputs over the message box */
     }
@@ -319,4 +466,76 @@ textarea { height: 100%; min-height: 150px; }
     .nav-links a {
         font-size: 0.7rem; /* Tiny text for tiny screens */
     }
+}
+
+.full-width {
+    grid-column: 1 / -1; /* This makes the box stretch across both columns */
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-cyan {
+    background-color: #00e5ff;
+    color: #000;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+/* Training Page Specific Styling */
+.training-section {
+    padding: 60px 10%;
+    background-color: #f4f4f4;
+}
+
+.training-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.training-table th {
+    background-color: #0022ff; /* Westville Blue */
+    color: white;
+    padding: 15px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.training-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.training-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.training-table tr:hover {
+    background-color: #fff4f4; /* Subtle red hover effect */
+}
+
+/* This ensures the entire card area is a clickable link */
+.grid-item-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.grid-item-link:hover {
+    transform: translateY(-5px);
+}
+
+/* Fix for overlapping elements */
+.card {
+    position: relative;
+    z-index: 1;
 }
