@@ -32,7 +32,6 @@ body {
     align-items: center;
     padding: 0 3%;
     
-    /* This matches the Blue/Red split of your community section */
     background: linear-gradient(
         to right, 
         #0022ff 0%, 
@@ -45,36 +44,34 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Adds depth */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
 }
-
-
 
 /* New Logo Container Styles */
 .logo a {
     display: flex;
     align-items: center;
     text-decoration: none;
-    gap: 15px; /* Adds space between the logo image and the text */
+    gap: 15px; 
 }
 
 .logo-text {
-    color: #ffffff; /* Makes the text white so it shows on the blue */
+    color: #ffffff; 
     font-weight: 800;
     font-size: 1.2rem;
     text-transform: uppercase;
-    white-space: nowrap; /* Prevents the name from wrapping to a second line */
+    white-space: nowrap; 
 }
 
 .logo img {
-    height: 60px; /* Adjust based on your logo shape */
+    height: 60px; 
     width: auto;  
     display: block;
     transition: transform 0.3s ease;
 }
 
 .logo img:hover {
-    transform: scale(1.05); /* Slight pop when hovering over logo */
+    transform: scale(1.05); 
 }
 
 .nav-links {
@@ -87,17 +84,17 @@ body {
 }
 
 .nav-links a {
-    color: #ffffff; /* White text for maximum contrast */
+    color: #ffffff; 
     text-decoration: none;
     font-size: 0.85rem;
-    font-weight: 800; /* Thicker font to stand out */
+    font-weight: 800; 
     letter-spacing: 1px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Helps text pop against colors */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
     transition: transform 0.2s;
 }
 
 .nav-links a:hover {
-    color: #2de2e2; /* Your signature cyan on hover */
+    color: #2de2e2; 
     transform: scale(1.1);
 }
 
@@ -177,7 +174,6 @@ body {
     margin-bottom: 40px;
 }
 
-/* Added grid container styling which was missing */
 .community-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -262,6 +258,7 @@ textarea { height: 100%; min-height: 150px; }
     margin-bottom: 10px;
     color: #333;
 }
+
 /* Teams Page Styling */
 .teams-wrapper {
     padding: 60px 10%;
@@ -271,7 +268,7 @@ textarea { height: 100%; min-height: 150px; }
 .category-title {
     margin: 40px 0 20px;
     padding-left: 15px;
-    border-left: 5px solid #0022ff; /* Westville Blue accent */
+    border-left: 5px solid #0022ff; 
     font-size: 1.6rem;
     color: #1a1a1a;
     text-transform: uppercase;
@@ -289,7 +286,7 @@ textarea { height: 100%; min-height: 150px; }
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    border-bottom: 4px solid #ee0000; /* Westville Red accent */
+    border-bottom: 4px solid #ee0000; 
     transition: transform 0.3s ease;
 }
 
@@ -318,14 +315,34 @@ textarea { height: 100%; min-height: 150px; }
 .senior-card h3 { color: rgb(0, 0, 0); }
 
 .gk-card {
-    background: #ffffff; /* Cyan accent */
+    background: #ffffff; 
     border-bottom-color: #ff0000;
+}
+
+/* Coach Profile Image Clipping Fix (Forces image to sit inside circle) */
+.coach-image-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden; /* THE FIX: Keeps the picture bounded inside the circle */
+    margin: 0 auto 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.coach-image-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* THE FIX: Crops image seamlessly without distorting it */
+    display: block;
 }
 
 /* Mobile Fix for Teams */
 @media (max-width: 600px) {
     .teams-grid {
-        grid-template-columns: 1fr 1fr; /* 2 cards per row on phones */
+        grid-template-columns: 1fr 1fr; 
         gap: 10px;
     }
     .category-title {
@@ -378,7 +395,6 @@ textarea { height: 100%; min-height: 150px; }
     left: 0;
 }
 
-
 .back-btn {
     display: inline-block;
     margin-bottom: 20px;
@@ -401,19 +417,14 @@ textarea { height: 100%; min-height: 150px; }
     font-style: italic;
 }
 
-
 /* Mobile Fix for Detail Page */
 @media (max-width: 600px) {
     .info-grid { grid-template-columns: 1fr; }
 }
 
-
-
-
 /* --- MOBILE RESPONSIVENESS FIXES --- */
 @media (max-width: 768px) {
     
-    /* 1. Fix the Nav Bar: Wrap links so they don't slide off screen */
     .navbar {
         flex-direction: column;
         height: auto;
@@ -422,51 +433,48 @@ textarea { height: 100%; min-height: 150px; }
     }
 
     .logo a {
-        flex-direction: column; /* Stack logo image over the text */
+        flex-direction: column; 
         gap: 5px;
         margin-bottom: 10px;
     }
 
     .logo-text {
         font-size: 0.9rem;
-        white-space: normal; /* Allow text to wrap if it's too long */
+        white-space: normal; 
     }
 
     .nav-links {
-        flex-wrap: wrap; /* This is the "magic" that fixes overlapping links */
+        flex-wrap: wrap; 
         justify-content: center;
         gap: 10px;
         width: 100%;
     }
 
     .nav-links li {
-        margin: 0 5px; /* Tighten spacing between links */
+        margin: 0 5px; 
     }
 
-    /* 2. Fix the Hero Section */
     .hero-text h1 {
-        font-size: 1.8rem; /* Make the big heading smaller for phones */
+        font-size: 1.8rem; 
         line-height: 1.2;
     }
 
     .stripe {
-        width: 15px; /* Shrink side stripes so the image has more room */
+        width: 15px; 
     }
 
-    /* 3. Fix the Community Grid: Stack cards vertically */
     .community-grid {
-        grid-template-columns: 1fr; /* Force 1 card per row */
+        grid-template-columns: 1fr; 
         gap: 20px;
         padding: 0 5%;
     }
 
-    /* 4.the Map and Contact Form */
     .form-row {
-        flex-direction: column; /* Stack name inputs over the message box */
+        flex-direction: column; 
     }
 
     .location-section iframe {
-        height: 300px; /* Make the map shorter for easier scrolling on phones */
+        height: 300px; 
     }
 }
 
@@ -477,12 +485,12 @@ textarea { height: 100%; min-height: 150px; }
     }
     
     .nav-links a {
-        font-size: 0.7rem; /* Tiny text for tiny screens */
+        font-size: 0.7rem; 
     }
 }
 
 .full-width {
-    grid-column: 1 / -1; /* This makes the box stretch across both columns */
+    grid-column: 1 / -1; 
     text-align: center;
     margin-top: 20px;
 }
@@ -515,7 +523,7 @@ textarea { height: 100%; min-height: 150px; }
 }
 
 .training-table th {
-    background-color: #0022ff; /* Westville Blue */
+    background-color: #0022ff; 
     color: white;
     padding: 15px;
     text-align: left;
@@ -532,10 +540,9 @@ textarea { height: 100%; min-height: 150px; }
 }
 
 .training-table tr:hover {
-    background-color: #fff4f4; /* Subtle red hover effect */
+    background-color: #fff4f4; 
 }
 
-/* This ensures the entire card area is a clickable link */
 .grid-item-link {
     text-decoration: none;
     color: inherit;
@@ -547,7 +554,6 @@ textarea { height: 100%; min-height: 150px; }
     transform: translateY(-5px);
 }
 
-/* Fix for overlapping elements */
 .card {
     position: relative;
     z-index: 1;
@@ -556,21 +562,13 @@ textarea { height: 100%; min-height: 150px; }
 /* Gallery Specific Styles */
 .gallery-grid {
     display: grid;
-    /* This creates a 3-column grid that drops to 2 or 1 on smaller screens */
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
-    gap: 25px;
-    width: 100%;
-}
-
-.gallery-grid {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
 .gallery-item {
     position: relative;
-    height: 300px; /* Uniform height for all items */
+    height: 300px; 
     border-radius: 12px;
     overflow: hidden;
     border: 4px solid white;
@@ -580,7 +578,7 @@ textarea { height: 100%; min-height: 150px; }
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This crops images perfectly without stretching them */
+    object-fit: cover; 
     transition: transform 0.5s ease;
 }
 
@@ -604,7 +602,6 @@ textarea { height: 100%; min-height: 150px; }
     opacity: 1;
 }
 
-
 .gallery-item .overlay span {
     color: white;
     font-weight: 800;
@@ -612,7 +609,6 @@ textarea { height: 100%; min-height: 150px; }
     text-transform: uppercase;
 }
 
-/* Ensure the background matches the home page split */
 .split-bg {
     background: linear-gradient(90deg, #0022ff 50%, #ff0000 50%) !important;
     background-attachment: fixed;
@@ -629,7 +625,6 @@ body {
     flex-direction: column;
 }
 
-/* Add this class to your main content sections (hero, community, etc) */
 main, section, .teams-wrapper, .detail-container {
     flex: 1 0 auto;
 }
@@ -641,7 +636,7 @@ main, section, .teams-wrapper, .detail-container {
     color: white;
     padding: 40px 20px;
     text-align: center;
-    border-top: 4px solid #ee0000; /* Westville Red Accent */
+    border-top: 4px solid #ee0000; 
 }
 
 .footer-club-name {
@@ -660,14 +655,14 @@ main, section, .teams-wrapper, .detail-container {
 .social-logo {
     width: 45px;
     height: 45px;
-    border-radius: 8px; /* Smooths the edges of the square images */
+    border-radius: 8px; 
     object-fit: cover;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .social-logo:hover {
     transform: scale(1.15);
-    box-shadow: 0 0 15px rgba(45, 226, 226, 0.5); /* Cyan glow on hover */
+    box-shadow: 0 0 15px rgba(45, 226, 226, 0.5); 
 }
 
 .footer-tagline {
@@ -710,7 +705,7 @@ main, section, .teams-wrapper, .detail-container {
 
 .contact-info {
     flex: 1;
-    background: #0022ff; /* Westville Blue */
+    background: #0022ff; 
     color: white;
     padding: 40px;
 }
@@ -740,7 +735,7 @@ main, section, .teams-wrapper, .detail-container {
 }
 
 .btn-submit {
-    background: #ee0000; /* Westville Red */
+    background: #ee0000; 
     color: white;
     border: none;
     padding: 15px 30px;
@@ -764,4 +759,3 @@ main, section, .teams-wrapper, .detail-container {
     color: rgb(255, 255, 255);
     text-align: center;
 }
-
